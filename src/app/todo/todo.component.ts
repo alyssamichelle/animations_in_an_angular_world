@@ -7,35 +7,35 @@ import { Component } from '@angular/core';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
   animations: [
-
-    trigger('todoItem', [
-      transition(':enter', [
-        useAnimation(slideInAnimation)
-      ]),
-      transition(':leave', [
-        style({ backgroundColor: '#df3920' }),
-        useAnimation(slideOutAnimation)
-      ]),
+  trigger('todoItem', [
+    transition(':enter', [
+     useAnimation(slideInAnimation)
     ]),
-
-    trigger('todoAnimations', [
-      transition(':enter', [
-        group([
-          query('h1', [
-            style({ transform: 'translateY(-20px)' }),
-            animate(200)
-          ]),
-          query('input', [
-            style({ transform: 'translateY(-20px)' }),
-            animate(200)
-          ]),
-          query('@todoItem',
-            stagger(200, animateChild()))
-        ])
-      ])
+    transition(':leave', [
+      style({ backgroundColor: '#df3920' }),
+      useAnimation(slideOutAnimation)
     ]),
+  ]),
 
+  trigger('todosWrapper', [
+    transition(':enter', [
+    group([
+      query('h1', [
+        style({ opacity: 0 }),
+        animate(300)
+      ]),
+      query('input', [
+        style({ opacity: 0 }),
+        animate(300)
+      ]),
+      query('.button',
+        stagger(200, animateChild())
+      )
+    ])
 
+    ])
+  ]),
+   
   ]
 })
 

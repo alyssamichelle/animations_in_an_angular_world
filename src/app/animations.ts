@@ -1,7 +1,12 @@
-import { animate, animation, style, keyframes } from '@angular/animations';
+import { animate, keyframes, style, animation } from "@angular/animations";
+
+// I've created this animations file to keep our reusable triggers in, 
+// if you have a ton of animations, 
+// you might want to create a folder and organize them by file
+
 
 export let slideInAnimation = animation([
-  animate('0.5s ease-in', keyframes([
+  animate('0.5s cubic-bezier(.88,-0.19,.26,1.27)', keyframes([
     style({
       height: 0,
       opacity: 0,
@@ -15,10 +20,11 @@ export let slideInAnimation = animation([
       transform: 'translateX(0)'
     })
   ]))
-]);
+])
+
 
 export let slideOutAnimation = animation([
-  animate('0.5s ease-out', keyframes([
+  animate('0.5s cubic-bezier(.88,-0.19,.26,1.27)', keyframes([
     style({
       height: '50px',
       opacity: 1,
