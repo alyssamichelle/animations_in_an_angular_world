@@ -28,7 +28,7 @@ import { Component } from '@angular/core';
         style({ opacity: 0 }),
         animate(300)
       ]),
-      query('.button',
+      query('@todoItem',
         stagger(200, animateChild())
       )
     ])
